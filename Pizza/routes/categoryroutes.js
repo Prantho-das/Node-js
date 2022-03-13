@@ -1,0 +1,10 @@
+const express = require("express");
+const { categoryController } = require("../app/controller/categorycontroller");
+const { auth } = require("../app/middleware/authmiddlware");
+const categoryRouter = express.Router();
+categoryRouter.get("/", auth, categoryController.index);
+categoryRouter.post("/create", auth, categoryController.create);
+categoryRouter.put("/update/:id", auth, categoryController.update);
+categoryRouter.delete("/delete/:id", auth, categoryController.delete);
+categoryRouter.get("/read/:id", auth, categoryController.show);
+module.exports = { categoryRouter };

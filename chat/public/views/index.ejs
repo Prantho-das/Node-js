@@ -1,0 +1,85 @@
+<section class="container-md container-fluid py-5">
+  <div class="row">
+    <div class="col-md-4 border-end border-primary">
+      <h3 class="text-primary mb-4">User List</h3>
+      <ul class="list-group activeuserlist">
+        <template x-for="users in activeuser">
+          <li
+            class="
+              list-group-item
+              shadow-sm
+              d-flex
+              px-3
+              pointer
+              text-capitalize
+              justify-content-between
+              align-items-center
+              mb-3
+            "
+            role="button"
+            @click="receiver_set(users.id)"
+          >
+            <img
+              x-bind:src='"https://ui-avatars.com/api/?name="+users.first_name+"&color=7F9CF5&background=EBF4FF"'
+              class="rounded-circle w-auto d-block"
+              alt=""
+              style="width: 3rem; height: 3rem"
+            />
+            <h5
+              class="text-secondary"
+              x-text='users.first_name+" "+users.last_name'
+            ></h5>
+          </li>
+        </template>
+      </ul>
+    </div>
+    <div class="col-md-8">
+      <div class="chatarea" style="height: 20rem; overflow: auto">
+        <template x-for="messages in message">
+          <li
+            class="
+              list-group-item
+              shadow-sm
+              d-flex
+              px-4
+              pointer
+              text-capitalize
+              justify-content-between
+              align-items-center
+            "
+            role="button"
+          >
+            <img
+              x-bind:src='"https://ui-avatars.com/api/?name="+messages.first_name+"&color=7F9CF5&background=EBF4FF"'
+              class="rounded-circle w-auto d-block"
+              alt=""
+            />
+            <template x-if="messages.sender_id===sender_id">
+              <h3 class="text-primary" x-text="messages.message"></h3>
+            </template>
+            <template x-if="messages.sender_id===receiver_id">
+              <h3 class="text-success" x-text="messages.message"></h3>
+            </template>
+          </li>
+        </template>
+      </div>
+      <div x-show="room_id!=0" class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label"
+          >Write Your Message</label
+        >
+        <form @keyup.enter="messagesend()">
+          <textarea
+            x-model="msg"
+            class="form-control"
+            id="exampleFormControlTextarea1"
+            rows="3"
+          ></textarea>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<% if(message.length > 0){%>
+<h1>prantho</h1>
+<%} %>

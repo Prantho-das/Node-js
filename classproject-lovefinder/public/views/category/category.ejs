@@ -1,0 +1,204 @@
+<section class="category_list">
+  <!-- component -->
+  <div class="overflow-x-auto">
+    <div
+      class="
+        min-w-screen
+        bg-gray-100
+        flex
+        justify-center
+        bg-gray-100
+        font-sans
+        overflow-hidden
+      "
+    >
+      <div class="w-full lg:w-5/6">
+        <div class="bg-white shadow-md rounded my-6">
+          <table class="min-w-max w-full table-auto">
+            <thead>
+              <tr
+                class="
+                  bg-gray-200
+                  text-gray-600
+                  uppercase
+                  text-sm
+                  leading-normal
+                "
+              >
+                <th class="py-3 px-6 text-left">id</th>
+                <th class="py-3 px-6 text-left">Name</th>
+                <th class="py-3 px-6 text-center">Status</th>
+                <th class="py-3 px-6 text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-600 text-sm font-light">
+              <% i=1 
+              category.forEach((data)=>{ %>
+              <tr class="border-b border-gray-200 hover:bg-gray-100">
+                <td class="py-3 px-6 text-left whitespace-nowrap"><%= i %></td>
+                <td class="py-3 px-6 text-left">
+                  <div class="flex items-center">
+                    <span><%= data.category_name %> </span>
+                  </div>
+                </td>
+                <td class="py-3 px-6 text-center">
+                  <% if(data.status){ %>
+                  <span
+                    class="
+                      bg-green-200
+                      text-purple-600
+                      py-1
+                      px-3
+                      rounded-full
+                      text-xs
+                    "
+                    >Active</span
+                  >
+                  <% }else{%>
+                  <span
+                    class="
+                      bg-red-200
+                      text-purple-600
+                      py-1
+                      px-3
+                      rounded-full
+                      text-xs
+                    "
+                    >Inactive</span
+                  >
+                  <% } %>
+                </td>
+                <td class="py-3 px-6 text-center">
+                  <div class="flex item-center justify-center">
+                    <a
+                      href="/category/show/<%= data.id %> "
+                      class="
+                        w-4
+                        mr-4
+                        cursor-pointer
+                        transform
+                        hover:text-purple-500 hover:scale-110
+                      "
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"
+                        />
+                      </svg>
+                    </a>
+                    <a
+                      href="/category/status/<%= data.id %> "
+                      class="
+                        w-4
+                        mr-4
+                        cursor-pointer
+                        transform
+                        hover:text-purple-500 hover:scale-110
+                      "
+                    >
+                     <% if(data.status){%>
+                       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+</svg>
+                     <%}else{%>
+<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+</svg>
+                     <%} %> 
+                    </a>
+                    <a
+                      href="/category/delete/<%= data.id %> "
+                      class="
+                        w-4
+                        mr-2
+                        cursor-pointer
+                        transform
+                        text-red-600
+                        hover:text-purple-500 hover:scale-110
+                      "
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </td>
+              </tr>
+              <% i++
+             }) %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="category_insert flex justify-center py-10">
+  <form
+    method="POST"
+    action="/category/create"
+    class="
+      p-10
+      bg-white
+      rounded
+      flex
+      justify-center
+      items-center
+      flex-col
+      shadow-md
+    "
+  >
+    <p class="mb-5 text-3xl uppercase text-gray-600">Create Category</p>
+    <input
+      type="text"
+      class="
+        mb-5
+        p-3
+        w-80
+        focus:border-purple-700
+        rounded
+        border-2
+        outline-none
+      "
+      autocomplete="off"
+      placeholder="Create Category"
+      required
+      name="category"
+    />
+    <button
+      class="
+        bg-green-600
+        hover:bg-purple-900
+        text-white
+        font-bold
+        p-2
+        rounded
+        w-80
+        capitalize
+      "
+      id="login"
+      type="submit"
+    >
+      <span>category</span>
+    </button>
+  </form>
+</section>

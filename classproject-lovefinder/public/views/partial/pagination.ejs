@@ -1,0 +1,35 @@
+<!-- component -->
+<!-- This is an example component -->
+<div class="mt-5">
+  <ul class="flex pl-0 list-none rounded my-2">
+    <% var perpage=5 %> 
+    <% var pagecount= Math.ceil( pagination.length / perpage ) %> 
+    <% for (let i=0; i<pagecount; i++){%> 
+      <% let count = 1 %>
+    <li
+      class="
+        relative
+        font-semibold
+        shadow-md
+        rounded-md
+        block
+        py-2
+        px-3
+		mx-1
+        leading-tight
+        bg-white
+        border border-gray-300
+        text-blue-700
+        border-r-0
+        hover:bg-gray-200 hover:text-white
+      "
+    >
+      <a
+        class="page-link text-md"
+        href="/post/post?page_no=<%= count= count + i  %> "
+        ><%= count %>
+      </a>
+    </li>
+    <%} %>
+  </ul>
+</div>

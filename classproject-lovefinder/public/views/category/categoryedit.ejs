@@ -1,0 +1,68 @@
+<section class="category_insert flex justify-center py-10">
+  <form
+    method="POST"
+    action="/category/update"
+    class="
+      p-10
+      bg-white
+      rounded
+      flex
+      justify-center
+      items-center
+      flex-col
+      shadow-md
+    "
+  >
+    <p class="mb-5 text-3xl uppercase text-gray-600">Create Category</p>
+    <input
+      type="text"
+      class="
+        mb-5
+        p-3
+        w-80
+        focus:border-purple-700
+        rounded
+        border-2
+        outline-none
+      "
+      autocomplete="off"
+      placeholder="Create Category"
+      required
+      name="category"
+      value="<%= category[0].category_name %> "
+    />
+    <input
+      type="hidden"
+      class="
+        mb-5
+        p-3
+        w-80
+        focus:border-purple-700
+        rounded
+        border-2
+        outline-none
+      "
+      autocomplete="off"
+      placeholder="Create Category"
+      required
+      name="category_id"
+      value="<%= category[0].id %> "
+    />
+    <button
+      class="
+        bg-green-600
+        hover:bg-purple-900
+        text-white
+        font-bold
+        p-2
+        rounded
+        w-80
+        capitalize
+      "
+      id="login"
+      type="submit"
+    >
+      <span>category edit</span>
+    </button>
+  </form>
+</section>

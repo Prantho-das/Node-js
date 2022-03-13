@@ -1,0 +1,61 @@
+<section class="container mx-auto shadow-md rounded-md px-5 py-5">
+  <h1 class="text-3xl font-bold text-indigo-500 text-center mb-5 capitalize">
+    post page
+  </h1>
+  <div class="viewed shadow-md rounded-md px-3 py-4 mb-3">
+    <h1 class="text-2xl text-indigo-500 font-semibold mb-5 capitalize">
+      Followers Post (<%= followerpost.length %> )
+    </h1>
+    <% if(followerpost.length >0){ %> 
+    <div class="owl-carousel post">
+      <% followerpost.forEach(function(res){%>
+        <%- include('./partial/card',{data:res}) %>
+      <%})%>
+    </div>
+    <%}else{%>
+      <%- include("./partial/error") %> 
+    <%}%>
+  </div>
+  <div class="recent shadow-md rounded-md px-3 py-4 mb-3">
+    <h1 class="text-2xl text-indigo-500 font-semibold mb-5 capitalize">
+      Recent Post
+    </h1>
+    <% if(recent.length >0){ %> 
+    <div class="owl-carousel post">
+      <% recent.forEach(function(res){%>
+        <%- include('./partial/card',{data:res}) %>
+      <%})%>
+    </div>
+    <%}else{%>
+      <%- include("./partial/error") %> 
+      <%}%>
+  </div>
+  <div class="viewed shadow-md rounded-md px-3 py-4 mb-3">
+    <h1 class="text-2xl text-indigo-500 font-semibold mb-5 capitalize">
+      Most Viewed
+    </h1>
+        <% if(mostviewed.length >0){ %> 
+    <div class="owl-carousel post">
+      <% mostviewed.forEach(function(res){%>
+        <%- include('./partial/card',{data:res}) %>
+      <%})%>
+    </div>
+    <%}else{%>
+      <%- include("./partial/error") %> 
+      <%}%>
+  </div>
+  <div class="popular shadow-md rounded-md px-3 py-4 mb-3">
+    <h1 class="text-2xl text-indigo-500 font-semibold mb-5 capitalize">
+      Most Popular
+    </h1>
+            <% if(popular.length >0){ %> 
+    <div class="owl-carousel post">
+      <% popular.forEach(function(res){%>
+        <%- include('./partial/card',{data:res}) %>
+          <%})%>
+    </div>
+    <%}else{%>
+      <%- include("./partial/error") %> 
+      <%}%>
+  </div>
+</section>
